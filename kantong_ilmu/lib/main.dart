@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kantongilmu/loading_screen.dart';
+import 'package:kantongilmu/loading_page.dart';
+import 'package:kantongilmu/home_page.dart';
 
 void main() => runApp(KantongIlmu());
 
@@ -27,7 +28,8 @@ class KantongIlmu extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => LoadingScreen(),
+//        '/': (context) => LoadingScreen(),
+        '/': (context) => HomePage(),
       },
     );
   }

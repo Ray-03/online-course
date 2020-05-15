@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class LoadingScreen extends StatefulWidget {
+class LoadingPage extends StatefulWidget {
   @override
-  _LoadingScreenState createState() => _LoadingScreenState();
+  _LoadingPageState createState() => _LoadingPageState();
 }
 
-class _LoadingScreenState extends State<LoadingScreen> {
+class _LoadingPageState extends State<LoadingPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
