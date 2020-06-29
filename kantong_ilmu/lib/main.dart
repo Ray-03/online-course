@@ -1,6 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:kantongilmu/loading_page.dart';
-import 'package:kantongilmu/home_page.dart';
+import 'package:kantongilmu/pages/main_page.dart';
+import 'package:kantongilmu/pages/registration_page.dart';
+import 'package:kantongilmu/pages/signin_page.dart';
+import 'package:kantongilmu/services/auth.dart';
+import 'file:///C:/allData/kantongIlmu/kantong_ilmu/lib/pages/wrapper.dart';
+import 'package:provider/provider.dart';
 
 void main() => runApp(KantongIlmu());
 
@@ -8,29 +13,42 @@ class KantongIlmu extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return StreamProvider<FirebaseUser>.value(
+      value: AuthService().user,
+      child: MaterialApp(
+        title: 'Kantong Ilmu',
+        themeMode: ThemeMode.dark,
+        theme: ThemeData.light().copyWith(),
+        darkTheme: ThemeData.dark().copyWith(
+//          brightness: Brightness.dark,
+          scaffoldBackgroundColor: Color(0XFF241D17),
+          focusColor: Color(0XFFDA9E5F),
+          accentColor: Color(0XFFDA9E5F),
+          cursorColor: Color(0XFFDA9E5F),
+          buttonTheme: ButtonThemeData().copyWith(
+            buttonColor: Color(0XFFDA9E5F),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5),
+            ),
+          ),
+          bottomNavigationBarTheme:
+              BottomNavigationBarTheme.of(context).copyWith(
+            backgroundColor: Color.fromARGB(100, 36, 29, 23),
+            selectedItemColor: Color(0XFFDA9E5F),
+            unselectedItemColor: Color(0XFF7D5B3C),
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            type: BottomNavigationBarType.fixed,
+          ),
+        ),
+        debugShowCheckedModeBanner: false,
+        home: Wrapper(),
+        routes: {
+          MainPage.id: (context) => MainPage(),
+          SignInPage.id: (context) => SignInPage(),
+          RegistrationPage.id: (context) => RegistrationPage(),
+        },
       ),
-      initialRoute: '/',
-      routes: {
-//        '/': (context) => LoadingScreen(),
-        '/': (context) => HomePage(),
-      },
     );
   }
 }

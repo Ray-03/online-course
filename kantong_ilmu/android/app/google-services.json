@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "658498141243",
+    "firebase_url": "https://kantong-ilmu-649b7.firebaseio.com",
+    "project_id": "kantong-ilmu-649b7",
+    "storage_bucket": "kantong-ilmu-649b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658498141243:android:b7df5681b7e5555b6c301e",
+        "android_client_info": {
+          "package_name": "com.kantongilmu.kantongilmu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658498141243-j2pq1jbssae1taj2qpeqgpo68dj86qut.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kantongilmu.kantongilmu",
+            "certificate_hash": "0f3accb80ebb8fce609ff0044b1100541c4f60b8"
+          }
+        },
+        {
+          "client_id": "658498141243-kkhde1j8lte61spo7m97mkm44e2ij2fu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8zBPKTsXTYhrgNxAhdJ0bmV2gjfqzTdw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "658498141243-kkhde1j8lte61spo7m97mkm44e2ij2fu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
