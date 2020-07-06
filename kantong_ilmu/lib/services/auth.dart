@@ -1,12 +1,21 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'file:///C:/allData/kantongIlmu/kantong_ilmu/lib/components/notification_flushbar.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:kantongilmu/components/notification_flushbar.dart';
 
-class AuthService {
+abstract class BaseAuth {
+  //[registerEmailPassword] is used when user want to create account using custom email
+  Future registerEmailPassword(String email, String password);
+  //[signInEmailPassword] is used when user want to sign in to exist account using custom email
+  Future loginEmailPassword(String email, String password);
+//[signOut] is used when user decide to sign out
+  Future signOut();
+  //
+  Future forgotPassword(String email);
+}
+
+class AuthService implements BaseAuth {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
   //auth change user stream
   Stream<FirebaseUser> get user {
     return _auth.onAuthStateChanged;
@@ -40,41 +49,31 @@ class AuthService {
   }
 
   //[signInAnonymously] is used to log in to the app anonymously
-  Future signInAnonymously() async {
-    try {
-      AuthResult result = await _auth.signInAnonymously();
-      FirebaseUser user = result.user;
-      return user;
-    } catch (e) {
-      print(e.toString());
-      return null;
-    }
-  }
+//  Future signInAnonymously() async {
+//    try {
+//      AuthResult result = await _auth.signInAnonymously();
+//      FirebaseUser user = result.user;
+//      return user;
+//    } catch (e) {
+//      print(e.toString());
+//      return null;
+//    }
+//  }
 
-  //[signInEmailPassword] is used when user want to sign in to exist account using custom email
-  Future<dynamic> signInEmailPassword(String email, String password) async {
-    try {
-      AuthResult result = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
-      FirebaseUser user = result.user;
-      return user;
-    } catch (e) {
-      NotificationFlushBar flushBar = NotificationFlushBar(
-        title: 'Oops!',
-        error: true,
-        message: getError(e),
-      );
-      return flushBar;
-    }
-  }
-
-  //[registerEmailPassword] is used when user want to create account using custom email
-  Future<dynamic> registerEmailPassword(String email, String password) async {
+  @override
+  Future registerEmailPassword(String email, String password) async {
     try {
       AuthResult result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser user = result.user;
-      return user;
+      try {
+        await user.sendEmailVerification();
+        return user;
+      } catch (e) {
+        print('error when try send email');
+        print(e);
+      }
+//      return user;
     } catch (e) {
       NotificationFlushBar flushBar = NotificationFlushBar(
         title: 'Oops!',
@@ -83,10 +82,30 @@ class AuthService {
       );
       return flushBar;
     }
+//    throw UnimplementedError();
   }
 
-  //[signOut] is used when user decide to sign out
-  Future<dynamic> signOut() async {
+  @override
+  Future loginEmailPassword(String email, String password) async {
+    try {
+      AuthResult result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      FirebaseUser user = result.user;
+      if (user.isEmailVerified) return user;
+      return null;
+    } catch (e) {
+      NotificationFlushBar flushBar = NotificationFlushBar(
+        title: 'Oops!',
+        error: true,
+        message: getError(e),
+      );
+      return flushBar;
+    }
+//    throw UnimplementedError();
+  }
+
+  @override
+  Future signOut() async {
     try {
       return await _auth.signOut();
     } catch (e) {
@@ -97,5 +116,12 @@ class AuthService {
       );
       return flushBar;
     }
+//    throw UnimplementedError();
+  }
+
+  @override
+  Future forgotPassword(String email) async {
+    await _auth.sendPasswordResetEmail(email: email);
+//    throw UnimplementedError();
   }
 }

@@ -2,28 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kantongilmu/components/form_input.dart';
 import 'package:kantongilmu/components/loading_spinkit.dart';
-import 'file:///C:/allData/kantongIlmu/kantong_ilmu/lib/components/notification_flushbar.dart';
-import 'package:kantongilmu/pages/main_page.dart';
+import 'package:kantongilmu/components/notification_flushbar.dart';
 import 'package:kantongilmu/pages/registration_page.dart';
 import 'package:kantongilmu/services/auth.dart';
 import 'package:string_validator/string_validator.dart' as Validator;
 
-class SignInPage extends StatefulWidget {
-  static String id = 'signin_page';
+class LoginPage extends StatefulWidget {
+  static String id = 'login_page';
 
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _LoginPageState extends State<LoginPage> {
   final AuthService _auth = AuthService();
 //  final _formKey = GlobalKey<FormState>();
   final FocusNode _emailFocus = FocusNode();
   final FocusNode _passwordFocus = FocusNode();
   final FocusNode _submitFocus = FocusNode();
-  var _emailController, _passwordController = TextEditingController();
-  String email = '';
-  String password = '';
+  TextEditingController _emailController = TextEditingController(text: '');
+  TextEditingController _passwordController = TextEditingController(text: '');
+//  String email = '';
+//  String password = '';
   bool loading = false;
   @override
   Widget build(BuildContext context) {
@@ -52,8 +52,8 @@ class _SignInPageState extends State<SignInPage> {
                               });
                             },
                             hint: 'Email',
-                            onSaved: (String val) =>
-                                setState(() => email = val),
+//                            onSaved: (String val) =>
+//                                setState(() => email = val),
 //                        validator: (String val) => val.isEmpty
 //                            ? 'Email must be filled'
 //                            : !Validator.isEmail(val)
@@ -72,8 +72,8 @@ class _SignInPageState extends State<SignInPage> {
                               FocusScope.of(context).requestFocus();
                             },
                             hint: 'Password',
-                            onSaved: (String val) =>
-                                setState(() => password = val),
+//                            onSaved: (String val) =>
+//                                setState(() => password = val),
                             inputType: TextInputType.visiblePassword,
                             isObscured: true,
 //                            validator: (String val) => val.length < 6
@@ -83,6 +83,7 @@ class _SignInPageState extends State<SignInPage> {
                           SizedBox(height: 20),
                           RaisedButton(
                             shape: RoundedRectangleBorder(
+                              //nanti coba diganti ke StadiumBorder
                               borderRadius: BorderRadius.circular(35),
                             ),
                             padding: EdgeInsets.symmetric(
@@ -95,8 +96,9 @@ class _SignInPageState extends State<SignInPage> {
                             onPressed: () async {
                               print('Login in action...');
                               setState(() => loading = !loading);
-                              dynamic result = await _auth.signInEmailPassword(
-                                  email, password);
+                              dynamic result = await _auth.loginEmailPassword(
+                                  _emailController.text,
+                                  _passwordController.text);
                               setState(() {
                                 loading = !loading;
                               });

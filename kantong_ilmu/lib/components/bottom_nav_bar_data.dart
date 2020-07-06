@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kantongilmu/pages/cart_page.dart';
 import 'package:kantongilmu/pages/home_page.dart';
 import 'package:kantongilmu/pages/library_page.dart';
@@ -15,7 +16,7 @@ const kBottomNavBarItems = [
     title: Text('search'),
   ),
   BottomNavigationBarItem(
-    icon: Icon(Icons.library_books),
+    icon: Icon(FontAwesomeIcons.book),
     title: Text('library'),
   ),
   BottomNavigationBarItem(

@@ -4,7 +4,7 @@ import 'package:kantongilmu/constants.dart';
 class FormInput extends StatefulWidget {
   FormInput({
     @required this.hint,
-    @required this.onSaved,
+//    @required this.onSaved,
     @optionalTypeArgs this.inputType = TextInputType.text,
     @optionalTypeArgs this.isObscured = false,
     @optionalTypeArgs this.validator,
@@ -13,13 +13,14 @@ class FormInput extends StatefulWidget {
     @required this.focusNode,
     @optionalTypeArgs this.onFieldSubmitted,
   });
-  final Function onSaved, validator;
+//  final Function onSaved, validator;
+  final Function validator;
   final String hint;
   final bool isObscured;
   final TextInputType inputType;
   final IconData icon;
-  final TextEditingController controller; //agecontroller
-  final FocusNode focusNode; //ageFocus
+  final TextEditingController controller;
+  final FocusNode focusNode;
   final Function onFieldSubmitted;
 
   @override
@@ -50,7 +51,7 @@ class _FormInputState extends State<FormInput> {
         controller: widget.controller,
         focusNode: widget.focusNode,
         validator: widget.validator,
-        onChanged: widget.onSaved,
+//        onChanged: widget.onSaved,
         obscureText: _isNotVisible,
         keyboardType: widget.inputType,
         textAlign: TextAlign.center,

@@ -1,8 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kantongilmu/pages/forgot_password_page.dart';
 import 'package:kantongilmu/pages/main_page.dart';
+import 'package:kantongilmu/pages/my_account_page.dart';
 import 'package:kantongilmu/pages/registration_page.dart';
-import 'package:kantongilmu/pages/signin_page.dart';
+import 'package:kantongilmu/pages/login_page.dart';
+import 'package:kantongilmu/pages/verify_email_page.dart';
 import 'package:kantongilmu/services/auth.dart';
 import 'file:///C:/allData/kantongIlmu/kantong_ilmu/lib/pages/wrapper.dart';
 import 'package:provider/provider.dart';
@@ -45,8 +48,11 @@ class KantongIlmu extends StatelessWidget {
         home: Wrapper(),
         routes: {
           MainPage.id: (context) => MainPage(),
-          SignInPage.id: (context) => SignInPage(),
+          LoginPage.id: (context) => LoginPage(),
           RegistrationPage.id: (context) => RegistrationPage(),
+          VerifyEmailPage.id: (context) => VerifyEmailPage(),
+          ForgotPasswordPage.id: (context) => ForgotPasswordPage(),
+          MyAccount.id: (context) => MyAccount(),
         },
       ),
     );
