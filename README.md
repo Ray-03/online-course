@@ -1,2 +1,2 @@
-# mobile-mahir
-Mobile app development of Mahir App
+# Kantong-Ilmu
+Mobile app development of Kantong Ilmu App
