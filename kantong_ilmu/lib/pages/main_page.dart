@@ -32,11 +32,14 @@ class _MainPageState extends State<MainPage> {
         body: _childPages.elementAt(_currentIndex),
 
         ///opens page based index in [_childPages]
-        bottomNavigationBar: BottomNavigationBar(
-          showSelectedLabels: false,
-          onTap: onTabTapped,
-          currentIndex: _currentIndex,
-          items: kBottomNavBarItems,
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: BottomNavigationBar(
+            showSelectedLabels: false,
+            onTap: onTabTapped,
+            currentIndex: _currentIndex,
+            items: kBottomNavBarItems,
+          ),
         ),
       ),
     );

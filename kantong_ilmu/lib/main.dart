@@ -24,9 +24,9 @@ class KantongIlmu extends StatelessWidget {
         themeMode:
             ThemeMode.dark, //TODO: Change themeMode based on user preferences
         theme: ThemeData.light()
-            .copyWith(), //TODO: Change light theme based on our color shceme
+            .copyWith(), //TODO: Change light theme based on our color scheme
         darkTheme: ThemeData.dark().copyWith(
-          //TODO: Change light theme based on our color shceme
+          //TODO: Change light theme based on our color scheme
 //          brightness: Brightness.dark,
           scaffoldBackgroundColor: Color(0XFF241D17),
           focusColor: Color(0XFFDA9E5F),
