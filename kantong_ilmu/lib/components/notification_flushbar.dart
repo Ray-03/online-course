@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flushbar/flushbar.dart';
 
 class NotificationFlushBar extends StatelessWidget {
-  NotificationFlushBar({this.title, this.message, this.error});
+  NotificationFlushBar({this.title, this.message, this.isError});
+
+  ///[title] header of the message
+  ///[message] body of the message
+  ///[isError] check either error message or not
   final String title;
   final String message;
-  final bool error;
+  final bool isError;
   @override
   Widget build(BuildContext context) {
     return Flushbar(
@@ -13,7 +17,7 @@ class NotificationFlushBar extends StatelessWidget {
       padding: EdgeInsets.all(10),
       borderRadius: 10,
       backgroundGradient: LinearGradient(
-        colors: error
+        colors: isError
             ? [Colors.red.shade500, Colors.redAccent.shade100]
             : [Colors.green.shade500, Colors.greenAccent],
         stops: [0.7, 1],

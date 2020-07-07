@@ -4,7 +4,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: Colors.white, //TODO: create cart content
     );
   }
 }

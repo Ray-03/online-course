@@ -5,7 +5,6 @@ import 'package:kantongilmu/components/loading_spinkit.dart';
 import 'package:kantongilmu/components/notification_flushbar.dart';
 import 'package:kantongilmu/pages/registration_page.dart';
 import 'package:kantongilmu/services/auth.dart';
-import 'package:string_validator/string_validator.dart' as Validator;
 
 class LoginPage extends StatefulWidget {
   static String id = 'login_page';
@@ -22,8 +21,6 @@ class _LoginPageState extends State<LoginPage> {
   final FocusNode _submitFocus = FocusNode();
   TextEditingController _emailController = TextEditingController(text: '');
   TextEditingController _passwordController = TextEditingController(text: '');
-//  String email = '';
-//  String password = '';
   bool loading = false;
   @override
   Widget build(BuildContext context) {
@@ -94,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             focusNode: _submitFocus,
                             onPressed: () async {
-                              print('Login in action...');
+                              debugPrint('Login in action...');
                               setState(() => loading = !loading);
                               dynamic result = await _auth.loginEmailPassword(
                                   _emailController.text,

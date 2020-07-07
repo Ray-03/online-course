@@ -4,6 +4,7 @@ import 'package:kantongilmu/components/profile_info.dart';
 import 'package:kantongilmu/components/profile_tab.dart';
 import 'package:kantongilmu/components/profile_tab_data.dart';
 
+///[ProfilePage] to change user profile, settings and manage posts of user
 class ProfilePage extends StatefulWidget {
   static String id = 'profile_page';
 
@@ -43,7 +44,9 @@ class _ProfilePageState extends State<ProfilePage>
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            //TODO: Make [ProfileInfo] scrollable
             ProfileInfo(),
+            //TODO: Make [ProfileTab] header pinned when scrolled
             ProfileTab(tabController: _tabController),
           ],
         ),

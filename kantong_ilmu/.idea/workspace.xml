@@ -7,42 +7,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d514ae70-1156-4227-9c23-80fa1eeba424" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/components/alert_logout_dialog.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/profile_drawer.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/profile_drawer_data.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/profile_info.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/profile_tab.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/profile_tab_data.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/display_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/forgot_password_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/my_account_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/my_wallet_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/notifications_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/purchase_history_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/security_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/statistics_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/verify_email_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/wishlist_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/phone_info.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/profile_videos.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/alert_logout_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/alert_logout_dialog.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/components/bottom_nav_bar_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/bottom_nav_bar_data.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/components/form_input.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/form_input.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/loading_spinkit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/loading_spinkit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/notification_flushbar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/notification_flushbar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/profile_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/profile_drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/profile_drawer_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/profile_drawer_data.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/profile_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/profile_info.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/profile_tab.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/profile_tab.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/cart_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/cart_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/forgot_password_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/forgot_password_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/main_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/registration_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/registration_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/signin_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/wrapper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/wrapper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/verify_email_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/verify_email_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/wrapper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/landing_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/services/auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/auth.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/authenticate.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/ephemeral/Flutter-Generated.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/ephemeral/Flutter-Generated.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/ephemeral/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/ephemeral/flutter_export_environment.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/phone_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/phone_info.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,22 +110,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593747743529" />
-    <state width="721" height="167" key="GridCell.Tab.0.bottom" timestamp="1594018115587">
+    <state width="1491" height="171" key="GridCell.Tab.0.bottom" timestamp="1594032862205">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="721" height="167" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594018115587" />
-    <state width="721" height="167" key="GridCell.Tab.0.center" timestamp="1594018115587">
+    <state width="1491" height="171" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594032862205" />
+    <state width="1491" height="171" key="GridCell.Tab.0.center" timestamp="1594032862205">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="721" height="167" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594018115587" />
-    <state width="721" height="167" key="GridCell.Tab.0.left" timestamp="1594018115587">
+    <state width="1491" height="171" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594032862205" />
+    <state width="1491" height="171" key="GridCell.Tab.0.left" timestamp="1594032862205">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="721" height="167" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594018115587" />
-    <state width="721" height="167" key="GridCell.Tab.0.right" timestamp="1594018115587">
+    <state width="1491" height="171" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594032862205" />
+    <state width="1491" height="171" key="GridCell.Tab.0.right" timestamp="1594032862205">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="721" height="167" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594018115587" />
+    <state width="1491" height="171" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594032862205" />
     <state x="277" y="55" key="SettingsEditor" timestamp="1592811746198">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -148,10 +134,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1536.824@0.0.1536.824" timestamp="1592292697067" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1593915929109">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1594083124597">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1593915929109" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1594083124597" />
     <state x="963" y="332" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594017229351">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

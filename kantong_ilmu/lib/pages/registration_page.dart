@@ -9,6 +9,7 @@ import 'package:kantongilmu/pages/verify_email_page.dart';
 import 'package:kantongilmu/services/auth.dart';
 import 'package:string_validator/string_validator.dart' as Validator;
 
+///[RegistrationPage] shown when user want to register to app
 class RegistrationPage extends StatefulWidget {
   static String id = 'registration_page';
   @override
@@ -23,8 +24,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
   final FocusNode _submitFocus = FocusNode();
   TextEditingController _emailController = TextEditingController(text: '');
   TextEditingController _passwordController = TextEditingController(text: '');
-//  String email = '';
-//  String password = '';
   bool loading = false;
   @override
   Widget build(BuildContext context) {

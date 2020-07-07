@@ -5,8 +5,9 @@ class ForgotPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      body: Text('Forgot Password'),
-    ));
+      child: Scaffold(
+        body: Text('Forgot Password'),
+      ),
+    );
   }
 }

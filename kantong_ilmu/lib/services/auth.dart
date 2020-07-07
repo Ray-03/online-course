@@ -1,29 +1,35 @@
 import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:kantongilmu/components/notification_flushbar.dart';
 
 abstract class BaseAuth {
-  //[registerEmailPassword] is used when user want to create account using custom email
+  ///[registerEmailPassword] is used when user want to create account using custom email
   Future registerEmailPassword(String email, String password);
-  //[signInEmailPassword] is used when user want to sign in to exist account using custom email
+
+  ///[signInEmailPassword] is used when user want to sign in to exist account using custom email
   Future loginEmailPassword(String email, String password);
-//[signOut] is used when user decide to sign out
+
+  ///[signOut] is used when user decide to sign out
   Future signOut();
-  //
+
+  ///[forgotPassword] will redirect user to a page when user forgot the password
   Future forgotPassword(String email);
 }
 
+///[AuthService] is used for basic authentication process (login, register, forgot password, logout)
 class AuthService implements BaseAuth {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  //auth change user stream
-  Stream<FirebaseUser> get user {
+  Stream<FirebaseUser> get userState {
     return _auth.onAuthStateChanged;
+
+    ///check user == signed in or !signed in
   }
 
+  ///[getError] to provide values to [NotificationFlushBar] when error occurred
   String getError(dynamic e) {
     switch (e.code) {
-      //read documentation
+
+      ///read documentation for more detail about the cases
       case 'ERROR_INVALID_EMAIL':
         return 'Please input valid email format';
       case 'ERROR_WRONG_PASSWORD':
@@ -48,7 +54,7 @@ class AuthService implements BaseAuth {
     }
   }
 
-  //[signInAnonymously] is used to log in to the app anonymously
+  ///[signInAnonymously] is used to log in to the app anonymously
 //  Future signInAnonymously() async {
 //    try {
 //      AuthResult result = await _auth.signInAnonymously();
@@ -66,6 +72,8 @@ class AuthService implements BaseAuth {
       AuthResult result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser user = result.user;
+
+      ///if until this point is succeed, send email verification to user
       try {
         await user.sendEmailVerification();
         return user;
@@ -73,16 +81,15 @@ class AuthService implements BaseAuth {
         print('error when try send email');
         print(e);
       }
-//      return user;
     } catch (e) {
+      ///send [NotificationFlushBar] when error occurred
       NotificationFlushBar flushBar = NotificationFlushBar(
         title: 'Oops!',
-        error: true,
+        isError: true,
         message: getError(e),
       );
       return flushBar;
     }
-//    throw UnimplementedError();
   }
 
   @override
@@ -91,17 +98,18 @@ class AuthService implements BaseAuth {
       AuthResult result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser user = result.user;
+
+      ///check email == verified of !verified
       if (user.isEmailVerified) return user;
       return null;
     } catch (e) {
       NotificationFlushBar flushBar = NotificationFlushBar(
         title: 'Oops!',
-        error: true,
+        isError: true,
         message: getError(e),
       );
       return flushBar;
     }
-//    throw UnimplementedError();
   }
 
   @override
@@ -111,17 +119,15 @@ class AuthService implements BaseAuth {
     } catch (e) {
       NotificationFlushBar flushBar = NotificationFlushBar(
         title: 'Oops!',
-        error: true,
+        isError: true,
         message: getError(e),
       );
       return flushBar;
     }
-//    throw UnimplementedError();
   }
 
   @override
   Future forgotPassword(String email) async {
     await _auth.sendPasswordResetEmail(email: email);
-//    throw UnimplementedError();
   }
 }

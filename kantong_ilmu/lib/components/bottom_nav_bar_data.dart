@@ -3,9 +3,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kantongilmu/pages/cart_page.dart';
 import 'package:kantongilmu/pages/home_page.dart';
 import 'package:kantongilmu/pages/library_page.dart';
+import 'package:kantongilmu/pages/main_page.dart';
 import 'package:kantongilmu/pages/profile_page.dart';
 import 'package:kantongilmu/pages/search_page.dart';
 
+///[kBottomNavBarItems] consist its icon and title
 const kBottomNavBarItems = [
   BottomNavigationBarItem(
     icon: Icon(Icons.home),
@@ -29,14 +31,6 @@ const kBottomNavBarItems = [
   ),
 ];
 
-final pages = [
-  HomePage(),
-  SearchPage(),
-  LibraryPage(),
-  CartPage(),
-  ProfilePage(),
-];
-
 enum NavBarIndex {
   home,
   search,
@@ -44,3 +38,12 @@ enum NavBarIndex {
   cart,
   profile,
 }
+
+///[pages] to store each pages in [BottomNavigationBar][MainPage]
+final pages = [
+  HomePage(),
+  SearchPage(),
+  LibraryPage(),
+  CartPage(),
+  ProfilePage(),
+];

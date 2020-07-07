@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+///[VerifyEmailPage] shown once and only once to ask user to validate email
 class VerifyEmailPage extends StatelessWidget {
   static String id = 'verify_email_page';
   @override

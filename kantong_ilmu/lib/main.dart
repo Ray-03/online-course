@@ -6,23 +6,27 @@ import 'package:kantongilmu/pages/my_account_page.dart';
 import 'package:kantongilmu/pages/registration_page.dart';
 import 'package:kantongilmu/pages/login_page.dart';
 import 'package:kantongilmu/pages/verify_email_page.dart';
+import 'package:kantongilmu/pages/landing_page.dart';
 import 'package:kantongilmu/services/auth.dart';
-import 'file:///C:/allData/kantongIlmu/kantong_ilmu/lib/pages/wrapper.dart';
 import 'package:provider/provider.dart';
 
+///[KantongIlmu] is our root of app
 void main() => runApp(KantongIlmu());
 
 class KantongIlmu extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    ///use stream provider to check whether user is signed in or not in FirebaseUser.value
     return StreamProvider<FirebaseUser>.value(
-      value: AuthService().user,
+      value: AuthService().userState, //changed when user state changed
       child: MaterialApp(
         title: 'Kantong Ilmu',
-        themeMode: ThemeMode.dark,
-        theme: ThemeData.light().copyWith(),
+        themeMode:
+            ThemeMode.dark, //TODO: Change themeMode based on user preferences
+        theme: ThemeData.light()
+            .copyWith(), //TODO: Change light theme based on our color shceme
         darkTheme: ThemeData.dark().copyWith(
+          //TODO: Change light theme based on our color shceme
 //          brightness: Brightness.dark,
           scaffoldBackgroundColor: Color(0XFF241D17),
           focusColor: Color(0XFFDA9E5F),
@@ -34,6 +38,8 @@ class KantongIlmu extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
           ),
+
+          ///[bottomNavigationBarTheme] is used for change bottom nav bar style
           bottomNavigationBarTheme:
               BottomNavigationBarTheme.of(context).copyWith(
             backgroundColor: Color.fromARGB(100, 36, 29, 23),
@@ -45,7 +51,8 @@ class KantongIlmu extends StatelessWidget {
           ),
         ),
         debugShowCheckedModeBanner: false,
-        home: Wrapper(),
+        home: LandingPage(),
+
         routes: {
           MainPage.id: (context) => MainPage(),
           LoginPage.id: (context) => LoginPage(),
