@@ -8,18 +8,20 @@ class MyAccount extends StatefulWidget {
 }
 
 class _MyAccountState extends State<MyAccount> {
-  final FocusNode _currentPasswordFocus = FocusNode();
-  final FocusNode _newPasswordFocus = FocusNode();
-  final FocusNode _confirmNewPasswordFocus = FocusNode();
-  TextEditingController _currentPasswordController =
-      TextEditingController(text: '');
-  TextEditingController _newPasswordController =
-      TextEditingController(text: '');
-  TextEditingController _confirmNewPasswordController =
-      TextEditingController(text: '');
+//  final FocusNode _currentPasswordFocus = FocusNode();
+//  final FocusNode _newPasswordFocus = FocusNode();
+//  final FocusNode _confirmNewPasswordFocus = FocusNode();
+//  TextEditingController _currentPasswordController =
+//      TextEditingController(text: '');
+//  TextEditingController _newPasswordController =
+//      TextEditingController(text: '');
+//  TextEditingController _confirmNewPasswordController =
+//      TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Container(),
+    );
   }
 }
