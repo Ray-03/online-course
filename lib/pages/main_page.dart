@@ -18,9 +18,7 @@ class _MainPageState extends State<MainPage> {
 
   ///[onTabTapped] to change [_currentIndex] of [bottomNavigationBar]
   void onTabTapped(int index) {
-    setState(() {
-      _currentIndex = NavBarIndex.values.elementAt(index).index;
-    });
+    setState(() => _currentIndex = NavBarIndex.values.elementAt(index).index);
   }
 
   @override

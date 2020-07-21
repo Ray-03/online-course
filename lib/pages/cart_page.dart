@@ -4,87 +4,75 @@ import 'package:kantongilmu/models/course.dart';
 import 'package:kantongilmu/models/trainer.dart';
 
 class CartPage extends StatelessWidget {
-//  final ScrollController _scrollController = ScrollController();
-  /// note: data must be sorted by trainer id
-//  final List<Course> dummyCoursesInCart = [
-//    Course(
-//      courseID: 'CO004',
-//      courseTitle: 'Develop Aplikasi dengan Assembly bagian 2',
-//      trainer: Trainer(
-//        trainerName: 'Ayam Goyeng',
-//        trainerID: 'TR002',
-//      ),
-//    ),
-//    Course(
-//      courseID: 'CO001',
-//      courseTitle: 'Tutorial Bernafas part 1',
-//      trainer: Trainer(trainerName: 'Buwung Puyuh', trainerID: 'TR001'),
-//    ),
-//    Course(
-//      courseID: 'CO002',
-//      courseTitle: 'Tutorial Bernafas part 2',
-//      trainer: Trainer(trainerName: 'Buwung Puyuh', trainerID: 'TR001'),
-//    ),
-//    Course(
-//      courseID: 'CO003',
-//      courseTitle: 'Develop Aplikasi dengan Assembly',
-//      trainer: Trainer(
-//        trainerName: 'Ayam Goyeng',
-//        trainerID: 'TR002',
-//      ),
-//    ),
-//  ];
-
-  final Map<Trainer, List<Course>> dummyData = {
-    Trainer(trainerID: 'TR001', trainerName: 'Buwung Puyuh'): [
+  final Map<Trainer, List<Course>> coursesInCart = {
+    Trainer(trainerID: 'TR001', trainerName: 'Trainer A'): [
       Course(
         courseID: 'CO001',
-        courseTitle: 'Tutorial Bernapas Part 1',
+        courseTitle: 'A1',
         coursePrice: 10000,
       ),
       Course(
         courseID: 'CO002',
-        courseTitle: 'Tutorial Bernapas Part 2',
-        coursePrice: 10000,
-      )
-    ],
-    Trainer(trainerID: 'TR002', trainerName: 'Ayam Goyeng'): [
+        courseTitle: 'A2',
+        coursePrice: 20000,
+      ),
       Course(
-        courseID: 'CO003',
-        courseTitle: 'Cara menabung dosa',
-        coursePrice: 0,
+        courseID: 'CO007',
+        courseTitle: 'A3',
+        coursePrice: 20000,
+      ),
+      Course(
+        courseID: 'CO008',
+        courseTitle: 'A4',
+        coursePrice: 20000,
       ),
     ],
-    Trainer(trainerID: 'TR003', trainerName: 'Ayam Bakar'): [
+    Trainer(trainerID: 'TR002', trainerName: 'B'): [
       Course(
-          courseID: 'CO004',
-          courseTitle: 'Cara menabung dosa',
-          coursePrice: 2000),
+        courseID: 'CO003',
+        courseTitle: 'B1',
+        coursePrice: 30000,
+      ),
+      Course(
+        courseID: 'CO009',
+        courseTitle: 'B2',
+        coursePrice: 40000,
+      ),
     ],
-    Trainer(trainerID: 'TR004', trainerName: 'Buwung Bakar'): [
+    Trainer(trainerID: 'TR003', trainerName: 'C'): [
       Course(
-          courseID: 'CO005',
-          courseTitle: 'Cara menabung dosa',
-          coursePrice: 200000),
-      Course(
-          courseID: 'CO006',
-          courseTitle: 'Cara menabung dosa 3',
-          coursePrice: 2000000),
+        courseID: 'CO004',
+        courseTitle: 'C1',
+        coursePrice: 4000,
+      ),
     ],
-    Trainer(trainerID: 'TR005', trainerName: 'Kera Sakti'): [
+    Trainer(trainerID: 'TR004', trainerName: 'D'): [
       Course(
-          courseID: 'CO007',
-          courseTitle: 'Cara menabung dosa',
-          coursePrice: 2000000),
+        courseID: 'CO005',
+        courseTitle: 'D1',
+        coursePrice: 500000,
+      ),
+      Course(
+        courseID: 'CO006',
+        courseTitle: 'D2',
+        coursePrice: 6000000,
+      ),
+    ],
+    Trainer(trainerID: 'TR005', trainerName: 'E'): [
+      Course(
+        courseID: 'CO007',
+        courseTitle: 'E1',
+        coursePrice: 7000000,
+      ),
     ],
   };
 
+  void checkBoxToggle(){
+
+  }
+
   @override
   Widget build(BuildContext context) {
-//    dummyData.forEach((key, value) {
-//      print(
-//          '${key.trainerID}, ${key.trainerName}: [ ${value.toList().}]');
-//    );
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Container(
@@ -154,10 +142,40 @@ class CartPage extends StatelessWidget {
               controlAffinity: ListTileControlAffinity.leading,
               dense: true,
             ),
-          ),
+          ), //Select All
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
+                List<CheckboxListTile> courseBodyData = [];
+                coursesInCart.values.elementAt(index).forEach((element) {
+                  courseBodyData.add(
+                    CheckboxListTile(
+                      controlAffinity: ListTileControlAffinity.leading,
+                      value: false,
+                      onChanged: (val) {},
+                      title: Row(
+                        children: [
+                          Container(
+                            height: 50,
+                            width: 50,
+                            child:
+                                Image.network('https://picsum.photos/300/300'),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('${element.courseTitle}'),
+                              Text('Rp.${element.coursePrice}'),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                });
                 return Card(
                   elevation: 5,
                   color: Colors.pink,
@@ -169,10 +187,13 @@ class CartPage extends StatelessWidget {
                         CheckboxListTile(
                           value: false,
                           onChanged: (val) {},
-                          title: Text('Nama yang buat'),
-                          controlAffinity: ListTileControlAffinity.leading,
+                          title: Text(
+                            '${coursesInCart.keys.elementAt(index).trainerName}',
+                          ),
                           subtitle: Text(
-                              '0/${dummyData.values.elementAt(index).length}'),
+                            '0/${coursesInCart.values.elementAt(index).length}',
+                          ),
+                          controlAffinity: ListTileControlAffinity.leading,
                         ),
                         Divider(
                           color: Colors.white,
@@ -184,40 +205,15 @@ class CartPage extends StatelessWidget {
                         ///all items in the carts
 
                         ////////////////////////////////////////////////
-
-                        CheckboxListTile(
-                          controlAffinity: ListTileControlAffinity.leading,
-                          value: false,
-                          onChanged: (val) {},
-                          title: Row(
-                            children: [
-                              Container(
-                                height: 50,
-                                width: 50,
-                                color: Colors.white,
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('Nama pengajar'),
-                                  Text('Harga')
-                                ],
-                              )
-                            ],
-                          ),
+                        Column(
+                          children: courseBodyData,
                         ),
-
-//                        ListView.builder(itemBuilder: (BuildContext context, int index){}, itemCount: ,)
                       ],
                     ),
-//                    color: Colors.red,
                   ),
                 );
               },
-              childCount: dummyData.length,
+              childCount: coursesInCart.length,
             ),
           ),
           SliverToBoxAdapter(

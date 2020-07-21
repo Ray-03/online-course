@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class ProfileInfo extends StatelessWidget {
   ///consist of profile picture, name, description, courses, followers, following
+  final String urlProfile =
+      'https://picsum.photos/500/300'; //TODO: Get real image from Firestore
   @override
   Widget build(BuildContext context) {
-    String urlProfile =
-        'https://picsum.photos/500/300'; //TODO: Get real image from Firestore
     return Padding(
       padding: EdgeInsets.all(30),
       child: Row(
