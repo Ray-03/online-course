@@ -12,7 +12,7 @@ class ProfilePage extends StatelessWidget {
       child: Scaffold(
         endDrawer: ProfileDrawer(),
         appBar: AppBar(
-          title: Text('AppBar'),
+          title: Text('NickName'),
           elevation: 5,
         ),
         body: DefaultTabController(
@@ -31,10 +31,10 @@ class ProfilePage extends StatelessWidget {
                 TabBar(
                   tabs: [
                     Tab(
-                      text: 'A',
+                      icon: Icon(Icons.videocam),
                     ),
                     Tab(
-                      text: 'B',
+                      icon: Icon(Icons.create),
                     ),
                   ],
                 ),
