@@ -11,53 +11,50 @@ class ProfilePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         endDrawer: ProfileDrawer(),
+        appBar: AppBar(
+          title: Text('AppBar'),
+          elevation: 5,
+        ),
         body: DefaultTabController(
           length: 2,
           child: NestedScrollView(
-            physics: AlwaysScrollableScrollPhysics(),
-            headerSliverBuilder: (context, value) {
+//            physics: AlwaysScrollableScrollPhysics(),
+            headerSliverBuilder: (context, _) {
               return [
-                SliverAppBar(
-                  floating: true,
-                  pinned: true,
-                  snap: false,
-                  leading: IconButton(
-                    icon: Icon(Icons.add),
-                    onPressed: () => null,
-                  ),
-                  title: Text('Your Name'),
-                  centerTitle: true,
-                  expandedHeight: 250,
-                  flexibleSpace: Padding(
-                    padding: EdgeInsets.only(top: kToolbarHeight),
-                    child: ProfileInfo(),
-                  ),
-                  bottom: TabBar(tabs: profileTabs),
+                SliverToBoxAdapter(
+                  child: ProfileInfo(),
                 ),
               ];
             },
-            body: TabBarView(
+            body: Column(
               children: [
-                ProfileVideo(),
-                ListView.builder(
-                  itemBuilder: (context, index) {
-                    return Text('$index');
-                  },
-                  itemCount: 10, //TODO: get content from Firestore
+                TabBar(
+                  tabs: [
+                    Tab(
+                      text: 'A',
+                    ),
+                    Tab(
+                      text: 'B',
+                    ),
+                  ],
+                ),
+                Expanded(
+                  child: TabBarView(
+                    children: [
+                      ProfileVideo(),
+                      ListView.builder(
+                        itemBuilder: (context, index) {
+                          return Text('$index');
+                        },
+                        itemCount: 10, //TODO: get content from Firestore
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
         ),
-//        body: Column(
-//          crossAxisAlignment: CrossAxisAlignment.start,
-//          children: [
-//            //TODO: Make [ProfileInfo] scrollable
-//            ProfileInfo(),
-//            //TODO: Make [ProfileTab] header pinned when scrolled
-//            ProfileTab(tabController: _tabController),
-//          ],
-//        ),
       ),
     );
   }
