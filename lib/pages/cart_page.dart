@@ -67,162 +67,166 @@ class CartPage extends StatelessWidget {
     ],
   };
 
-  void checkBoxToggle(){
-
-  }
+//  void checkBoxToggle(){
+//
+//  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Container(
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-        color: Colors.blue,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text('Total Price'),
-                Text('Rp. 999.999'),
-              ],
-            ),
-            RaisedButton(
-              onPressed: () {},
-              child: Text('Check out!'),
-            )
-          ],
-        ),
-      ),
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            snap: true,
-            forceElevated: true,
-            floating: true,
-            pinned: true,
-            title: Text('CART'),
-            actions: [
-              IconButton(
-                icon: Icon(
-                  FontAwesomeIcons.solidHeart,
-                  color: Colors.red,
-                ),
-                onPressed: () {},
-                tooltip: 'Go to wishlist',
-              )
-            ],
-
-            /// harusnya bisa pakai kode ini agar checkbox ada di dalam sliverappbar. tapi ketika list discroll, checkbox tidak ikut hidden
-//          flexibleSpace: Padding(
-//            padding: EdgeInsets.only(top: kToolbarHeight),
-//            child: CheckboxListTile(
-//              value: true,
-//              onChanged: (val) {},
-//              title: Text('Select all item'),
-//              checkColor: Color(0XFFDA9E5F),
-//              activeColor: Color(0XFF7D5B3C),
-//              controlAffinity: ListTileControlAffinity.leading,
-//              dense: true,
-//            ),
-//            child: Checkbox(value: false, onChanged: (vel) {}),
+    return Stack(
+      children: [
+        CustomScrollView(
+          slivers: [
+//          SliverAppBar(
+//            snap: true,
+//            forceElevated: true,
+//            floating: true,
+//            pinned: true,
+//            title: Text('CART'),
+//            actions: [
+//              IconButton(
+//                icon: Icon(
+//                  FontAwesomeIcons.solidHeart,
+//                  color: Colors.red,
+//                ),
+//                onPressed: () {},
+//                tooltip: 'Go to wishlist',
+//              )
+//            ],
+//
+//            /// harusnya bisa pakai kode ini agar checkbox ada di dalam sliverappbar. tapi ketika list discroll, checkbox tidak ikut hidden
+////          flexibleSpace: Padding(
+////            padding: EdgeInsets.only(top: kToolbarHeight),
+////            child: CheckboxListTile(
+////              value: true,
+////              onChanged: (val) {},
+////              title: Text('Select all item'),
+////              checkColor: Color(0XFFDA9E5F),
+////              activeColor: Color(0XFF7D5B3C),
+////              controlAffinity: ListTileControlAffinity.leading,
+////              dense: true,
+////            ),
+////            child: Checkbox(value: false, onChanged: (vel) {}),
+////          ),
+////          excludeHeaderSemantics: true,
+////          expandedHeight: 2 * kToolbarHeight,
 //          ),
-//          excludeHeaderSemantics: true,
-//          expandedHeight: 2 * kToolbarHeight,
-          ),
-          SliverToBoxAdapter(
-            child: CheckboxListTile(
-              value: true,
-              onChanged: (val) {},
-              title: Text('Select all item'),
-              checkColor: Color(0XFFDA9E5F),
-              activeColor: Color(0XFF7D5B3C),
-              controlAffinity: ListTileControlAffinity.leading,
-              dense: true,
-            ),
-          ), //Select All
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                List<CheckboxListTile> courseBodyData = [];
-                coursesInCart.values.elementAt(index).forEach((element) {
-                  courseBodyData.add(
-                    CheckboxListTile(
-                      controlAffinity: ListTileControlAffinity.leading,
-                      value: false,
-                      onChanged: (val) {},
-                      title: Row(
+            SliverToBoxAdapter(
+              child: CheckboxListTile(
+                value: true,
+                onChanged: (val) {},
+                title: Text('Select all item'),
+                checkColor: Color(0XFFDA9E5F),
+                activeColor: Color(0XFF7D5B3C),
+                controlAffinity: ListTileControlAffinity.leading,
+                dense: true,
+              ),
+            ), //Select All
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  List<CheckboxListTile> courseBodyData = [];
+                  coursesInCart.values.elementAt(index).forEach((element) {
+                    courseBodyData.add(
+                      CheckboxListTile(
+                        controlAffinity: ListTileControlAffinity.leading,
+                        value: false,
+                        onChanged: (val) {},
+                        title: Row(
+                          children: [
+                            Container(
+                              height: 50,
+                              width: 50,
+                              child: Image.network(
+                                  'https://picsum.photos/300/300'),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('${element.courseTitle}'),
+                                Text('Rp.${element.coursePrice}'),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  });
+                  return Card(
+                    elevation: 5,
+                    color: Colors.pink,
+                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    child: Container(
+                      child: Column(
                         children: [
-                          Container(
-                            height: 50,
-                            width: 50,
-                            child:
-                                Image.network('https://picsum.photos/300/300'),
+                          ///Trainer name from bought items
+                          CheckboxListTile(
+                            value: false,
+                            onChanged: (val) {},
+                            title: Text(
+                              '${coursesInCart.keys.elementAt(index).trainerName}',
+                            ),
+                            subtitle: Text(
+                              '0/${coursesInCart.values.elementAt(index).length}',
+                            ),
+                            controlAffinity: ListTileControlAffinity.leading,
                           ),
-                          SizedBox(
-                            width: 10,
+                          Divider(
+                            color: Colors.white,
+                            thickness: 2,
+                            endIndent: 20,
+                            indent: 20,
                           ),
+
+                          ///all items in the carts
+
+                          ////////////////////////////////////////////////
                           Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('${element.courseTitle}'),
-                              Text('Rp.${element.coursePrice}'),
-                            ],
-                          )
+                            children: courseBodyData,
+                          ),
                         ],
                       ),
                     ),
                   );
-                });
-                return Card(
-                  elevation: 5,
-                  color: Colors.pink,
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  child: Container(
-                    child: Column(
-                      children: [
-                        ///Trainer name from bought items
-                        CheckboxListTile(
-                          value: false,
-                          onChanged: (val) {},
-                          title: Text(
-                            '${coursesInCart.keys.elementAt(index).trainerName}',
-                          ),
-                          subtitle: Text(
-                            '0/${coursesInCart.values.elementAt(index).length}',
-                          ),
-                          controlAffinity: ListTileControlAffinity.leading,
-                        ),
-                        Divider(
-                          color: Colors.white,
-                          thickness: 2,
-                          endIndent: 20,
-                          indent: 20,
-                        ),
-
-                        ///all items in the carts
-
-                        ////////////////////////////////////////////////
-                        Column(
-                          children: courseBodyData,
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
-              childCount: coursesInCart.length,
+                },
+                childCount: coursesInCart.length,
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 80,
+              ),
+            ),
+          ],
+        ),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            color: Colors.blue,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text('Total Price'),
+                    Text('Rp. 999.999'),
+                  ],
+                ),
+                RaisedButton(
+                  onPressed: () {},
+                  child: Text('Check out!'),
+                )
+              ],
             ),
           ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 80,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
