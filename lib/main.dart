@@ -1,6 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kantongilmu/pages/about_this_course_page.dart';
+import 'package:kantongilmu/pages/chosen_course_page.dart';
+import 'package:kantongilmu/pages/explore_suggested.dart';
+import 'package:kantongilmu/pages/explore_this_tutor.dart';
 import 'package:kantongilmu/pages/forgot_password_page.dart';
+import 'package:kantongilmu/pages/library_chosen_course_page.dart';
 import 'package:kantongilmu/pages/main_page.dart';
 import 'package:kantongilmu/pages/my_account_page.dart';
 import 'package:kantongilmu/pages/registration_page.dart';
@@ -52,7 +57,6 @@ class KantongIlmu extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         home: LandingPage(),
-
         routes: {
           MainPage.id: (context) => MainPage(),
           LoginPage.id: (context) => LoginPage(),
@@ -60,6 +64,11 @@ class KantongIlmu extends StatelessWidget {
           VerifyEmailPage.id: (context) => VerifyEmailPage(),
           ForgotPasswordPage.id: (context) => ForgotPasswordPage(),
           MyAccount.id: (context) => MyAccount(),
+          ExploreChosenCourse.id: (context) => ExploreChosenCourse(),
+          AboutThisCoursePage.id: (context) => AboutThisCoursePage(),
+          ExploreSuggested.id: (context) => ExploreSuggested(),
+          ExploreFromThisTutor.id: (context) => ExploreFromThisTutor(),
+          LibraryChosenCoursePage.id: (context) => LibraryChosenCoursePage(),
         },
       ),
     );

@@ -1,12 +1,17 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:kantongilmu/components/library_dropdown_button_data.dart';
+import 'package:kantongilmu/components/library_dropdown_data.dart';
+
+import 'library_search_article_page.dart';
+import 'library_search_course_page.dart';
+import 'library_search_video_page.dart';
 
 class LibraryPage extends StatefulWidget {
   @override
   _LibraryPageState createState() => _LibraryPageState();
 }
 
+///SliverOverlapAbsorber/SliverOverlapInjector
 class _LibraryPageState extends State<LibraryPage> {
   String chosenDropdownValue = libraryDropdownItems.first;
   @override
@@ -61,46 +66,11 @@ class _LibraryPageState extends State<LibraryPage> {
               ),
             ), //dropdown, recent, A
           ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.all(8),
-              child: Container(
-                color: Colors.deepPurple,
-                height: 50,
-                child: Text('anggep aja search bar'),
-              ),
-            ),
-          ),
-//              SliverToBoxAdapter(
-//                child: Padding(
-//                  padding: EdgeInsets.all(8),
-//                  child: SizedBox(
-//                    height: 1200,
-//                    width: double.infinity,
-//                    child: LibrarySearchBar(),
-//                  ),
-//                ),
-////                child: LibrarySearchBar(), //search box
-//              ),
         ];
       },
       body: libraryDropdownNavigation.elementAt(
         libraryDropdownItems.indexOf(chosenDropdownValue),
       ),
-//          body: Column(
-//            children: [
-//              Container(
-//                decoration: BoxDecoration(
-//                  color: Colors.blue,
-//                  borderRadius: BorderRadius.circular(8),
-//                ),
-//              ),
-//              Container(
-//                color: Colors.blue,
-//                height: 50,
-//              ),
-//            ],
-//          ),
     );
   }
 }
@@ -159,27 +129,6 @@ enum LibraryDropdownIndex {
 
 final libraryDropdownPages = [
   LibraryArticlePage(),
-  LibraryVideoPage(),
-  LibraryCoursePage(),
+  LibrarySearchVideoPage(),
+  LibrarySearchCoursePage(),
 ];
-
-class LibraryCoursePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class LibraryVideoPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class LibraryArticlePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}

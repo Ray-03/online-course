@@ -15,9 +15,8 @@ class _MainPageState extends State<MainPage> {
   int _currentIndex = NavBarIndex.home.index;
 
   ///[onTabTapped] to change [_currentIndex] of [bottomNavigationBar]
-  void onTabTapped(int index) {
-    setState(() => _currentIndex = NavBarIndex.values.elementAt(index).index);
-  }
+  void onTabTapped(int index) =>
+      setState(() => _currentIndex = NavBarIndex.values.elementAt(index).index);
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +24,9 @@ class _MainPageState extends State<MainPage> {
     return SafeArea(
       child: Scaffold(
         appBar: pagesAppBar.elementAt(_currentIndex),
-        endDrawer:
-            _currentIndex == NavBarIndex.profile.index ? ProfileDrawer() : null,
+        endDrawer: _currentIndex == NavBarIndex.profile.index
+            ? ProfileDrawer()
+            : null, // only profile page has drawer
         body: pagesBody.elementAt(_currentIndex),
 
         ///opens page based index in [_childPages]

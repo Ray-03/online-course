@@ -5,35 +5,36 @@ import 'package:kantongilmu/pages/home_page.dart';
 import 'package:kantongilmu/pages/library_page.dart';
 import 'package:kantongilmu/pages/main_page.dart';
 import 'package:kantongilmu/pages/profile_page.dart';
-import 'package:kantongilmu/pages/search_page.dart';
+import 'package:kantongilmu/pages/explore_page.dart';
 
 ///[kBottomNavBarItems] consist its icon and title
 const List<BottomNavigationBarItem> kBottomNavBarItems = [
   BottomNavigationBarItem(
     icon: Icon(Icons.home),
-    title: Text('home'),
+    label: 'Home',
   ),
   BottomNavigationBarItem(
     icon: Icon(Icons.search),
-    title: Text('search'),
+    label: 'Search',
   ),
   BottomNavigationBarItem(
     icon: Icon(FontAwesomeIcons.book),
-    title: Text('library'),
+    label: 'Library',
   ),
   BottomNavigationBarItem(
     icon: Icon(Icons.shopping_cart),
-    title: Text('cart'),
+    label: 'cart',
   ),
   BottomNavigationBarItem(
     icon: Icon(Icons.person),
-    title: Text('profile'),
+    label: 'profile',
   ),
 ];
+
 final List<AppBar> pagesAppBar = [
   AppBar(
     leading: FlutterLogo(),
-    title: Text('Kantong Ilmu'),
+    title: Text('Nama Aplikasi'),
     actions: [
       IconButton(
         icon: Icon(Icons.message),
@@ -78,7 +79,7 @@ enum NavBarIndex {
 ///[pagesBody] to store each pages in [BottomNavigationBar][MainPage]
 final pagesBody = [
   HomePage(),
-  SearchPage(),
+  ExplorePage(),
   LibraryPage(),
   CartPage(),
   ProfilePage(),
