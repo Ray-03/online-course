@@ -1,6 +1,14 @@
-# kantongilmu
+# Online_course
 
-App for end user of Kantong Ilmu
+App to stream digital course
+
+## Demo
+
+https://drive.google.com/file/d/1-oYLUUCdvroIvU-ZLEaGl4vf8_cPK42y/view?usp=sharing
+
+## .apk
+
+https://drive.google.com/file/d/1Zf3M0uSgaoRyFHUBoT6zvFoajMx6La4X/view?usp=sharing
 
 ## Getting Started
 
